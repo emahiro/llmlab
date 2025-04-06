@@ -1,7 +1,6 @@
 import { google } from "@ai-sdk/google";
 import { Agent } from "@mastra/core/agent";
-import { MastraMCPClient } from "@mastra/mcp";
-import { hogeTools, weatherTool } from "../tools";
+import { hogeTools, mcpConfig, weatherTool } from "../tools";
 
 export const weatherAgent = new Agent({
 	name: "お天気アシスタント",
@@ -42,40 +41,5 @@ export const sampleMCPAgent = new Agent({
   - Always respond in the language of the question.
   `,
 	model: google("gemini-1.5-pro-latest"),
+    tools: await mcpConfig.getTools()
 });
-
-// Initialize the MCP client using mcp/fetch as an example https://hub.docker.com/r/mcp/fetch
-// Visit https://github.com/docker/mcp-servers for other reference docker mcp servers
-const mcpClient = new MastraMCPClient({
-	name: "mcp-fetch-sample",
-	server: {
-		command: "podman",
-		args: ["run", "-i", "--rm", "mcp/fetch:latest"],
-	},
-});
-
-try {
-	// Connect to the MCP server
-	await mcpClient.connect();
-	// Gracefully handle process exits so the docker subprocess is cleaned up
-	process.on("exit", () => {
-		mcpClient.disconnect();
-	});
-	// Get available tools
-	const tools = await mcpClient.tools();
-	// Use the agent with the MCP tools
-	const response = await sampleMCPAgent.generate(
-		"Tell me about mastra.ai/docs. Tell me generally what this page is and the content it includes.",
-		{
-			toolsets: {
-				fetch: tools,
-			},
-		},
-	);
-	console.log(`\n\n ${response.text}`);
-} catch (error) {
-	console.error("Error:", error);
-} finally {
-	// Always disconnect when done
-	await mcpClient.disconnect();
-}
