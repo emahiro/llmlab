@@ -101,3 +101,19 @@ function getWeatherCondition(code: number): string {
   };
   return conditions[code] || 'Unknown';
 }
+
+export const hogeTools = createTool({
+  id: 'hoge',
+  description: 'hoge',
+  inputSchema: z.object({
+    hoge: z.string(),
+  }),
+  outputSchema: z.object({
+    hoge: z.string(),
+  }),
+  execute: async ({ context }) => {
+    return {
+      hoge: context.hoge,
+    };
+  }
+});

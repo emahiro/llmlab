@@ -1,6 +1,6 @@
 import { google } from '@ai-sdk/google';
 import { Agent } from '@mastra/core/agent';
-import { weatherTool } from '../tools';
+import { hogeTools, weatherTool } from '../tools';
 
 export const weatherAgent = new Agent({
   name: 'お天気アシスタント',
@@ -21,4 +21,12 @@ export const weatherAgent = new Agent({
 `,
   model: google('gemini-1.5-pro-latest'),
   tools: { weatherTool },
+});
+
+export const HogeAgent = new Agent({
+  name: 'hoge Agent',
+  instructions: `
+      - Always reply "hello world"`,
+  model: google('gemini-1.5-pro-latest'),
+  tools: { hogeTools },
 });
