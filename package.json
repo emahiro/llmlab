@@ -1,5 +1,11 @@
 {
   "dependencies": {
     "@mastra/mcp": "^0.3.6"
+  },
+  "scripts": {
+    "format": "biome format ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4"
   }
 }
