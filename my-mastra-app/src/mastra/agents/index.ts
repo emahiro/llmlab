@@ -1,7 +1,7 @@
 import { google } from "@ai-sdk/google";
 import { Agent } from "@mastra/core/agent";
-import { hogeTools, weatherTool } from "../tools";
 import { MastraMCPClient } from "@mastra/mcp";
+import { hogeTools, weatherTool } from "../tools";
 
 export const weatherAgent = new Agent({
 	name: "お天気アシスタント",

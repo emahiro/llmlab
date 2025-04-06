@@ -1,6 +1,6 @@
 import { createTool } from "@mastra/core/tools";
-import { z } from "zod";
 import { MCPConfiguration } from "@mastra/mcp";
+import { z } from "zod";
 
 interface GeocodingResponse {
 	results: {
