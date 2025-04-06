@@ -97,7 +97,7 @@ function getWeatherCondition(code: number): string {
     86: 'Heavy snow showers',
     95: 'Thunderstorm',
     96: 'Thunderstorm with slight hail',
-    99: 'Thunderstorm with heavy hail', 
+    99: 'Thunderstorm with heavy hail',
   };
   return conditions[code] || 'Unknown';
 }
