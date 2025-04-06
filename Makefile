@@ -1,11 +1,10 @@
-.PHONY: help setup-env clean
+.PHONY: help setup-env clean format
 
 # デフォルトターゲット
 help:
 	@echo "使用可能なコマンド:"
 	@echo "  make setup-env   - .envから環境変数を.envrcに設定します"
 	@echo "  make clean       - 一時ファイルを削除します"
-
 # .envから.envrcを作成するセットアップコマンド
 setup-env:
 	@echo "環境変数のセットアップを開始します..."
