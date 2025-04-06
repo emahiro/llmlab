@@ -5,8 +5,6 @@ help:
 	@echo "使用可能なコマンド:"
 	@echo "  make setup-env   - .envから環境変数を.envrcに設定します"
 	@echo "  make clean       - 一時ファイルを削除します"
-	@echo "  make format      - コードをフォーマットします"
-
 # .envから.envrcを作成するセットアップコマンド
 setup-env:
 	@echo "環境変数のセットアップを開始します..."
@@ -34,7 +32,3 @@ clean:
 	@echo "一時ファイルを削除しています..."
 	@rm -f .envrc.tmp
 	@echo "完了しました。"
-
-# フォーマット
-format:
-	@npm run format
