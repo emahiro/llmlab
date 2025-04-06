@@ -69,8 +69,9 @@ const getWeather = async (location: string) => {
 
 function getWeatherCondition(code: number): string {
   const conditions: Record<number, string> = {
-    0: 'Clear sky',
-    1: 'Mainly clear',
+    // 日本語で翻訳を付ける
+    0: 'Clear sky', // 晴れ
+    1: 'Mainly clear', // 主に晴れ
     2: 'Partly cloudy',
     3: 'Overcast',
     45: 'Foggy',
@@ -96,7 +97,7 @@ function getWeatherCondition(code: number): string {
     86: 'Heavy snow showers',
     95: 'Thunderstorm',
     96: 'Thunderstorm with slight hail',
-    99: 'Thunderstorm with heavy hail',
+    99: 'Thunderstorm with heavy hail', 
   };
   return conditions[code] || 'Unknown';
 }
