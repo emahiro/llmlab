@@ -1,0 +1,31 @@
+# 環境変数ファイル
+.env
+
+# direnv
+.envrc.local
+
+# OS固有のファイル
+.DS_Store
+Thumbs.db
+
+# エディタの設定ファイル
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ビルド生成物
+/bin/
+/dist/
+/build/
+
+# 依存関係
+/node_modules/
+/vendor/
+
+# ログファイル
+*.log
+/logs/
+
+# キャッシュファイル
+.cache/
