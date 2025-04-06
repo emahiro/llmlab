@@ -118,3 +118,15 @@ export const hogeTools = createTool({
 		};
 	},
 });
+
+// MCP Config
+
+export const mcpConfig = new MCPConfiguration({
+	id: "my-mcp-config",
+	servers: {
+		timeMCP: {
+			command: "podman",
+			args: ["run", "-i", "--rm", "mcp/time"],
+		},
+	},
+});
