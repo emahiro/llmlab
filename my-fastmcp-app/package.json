@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "fastmcp test app",
   "main": "src/index.ts",
+  "type": "module",
   "scripts": {
     "start": "npx fastmcp dev src/index.ts"
   },
