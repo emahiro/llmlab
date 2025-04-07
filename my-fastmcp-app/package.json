@@ -1,0 +1,14 @@
+{
+  "name": "my-fastmcp-app",
+  "version": "1.0.0",
+  "description": "fastmcp test app",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastmcp": "^1.21.0"
+  }
+}

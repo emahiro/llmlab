@@ -23,7 +23,9 @@ Thumbs.db
 
 # 依存関係
 /node_modules/
+node_modules
 /vendor/
+
 
 # ログファイル
 *.log

@@ -1,6 +1,7 @@
 {
 	"dependencies": {
-		"@mastra/mcp": "^0.3.6"
+		"@mastra/mcp": "^0.3.6",
+		"fastmcp": "^1.21.0"
 	},
 	"scripts": {
 		"format": "biome format --write",
