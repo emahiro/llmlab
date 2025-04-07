@@ -41,5 +41,5 @@ export const sampleMCPAgent = new Agent({
   - Always respond in the language of the question.
   `,
 	model: google("gemini-1.5-pro-latest"),
-    tools: await mcpConfig.getTools()
+	tools: await mcpConfig.getTools(),
 });
