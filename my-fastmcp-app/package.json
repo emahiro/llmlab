@@ -4,11 +4,12 @@
   "description": "fastmcp test app",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx fastmcp dev src/index.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fastmcp": "^1.21.0"
+    "fastmcp": "^1.21.0",
+    "zod": "^3.24.2"
   }
 }
