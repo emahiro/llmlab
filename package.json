@@ -1,7 +1,4 @@
 {
-	"dependencies": {
-		"@mastra/mcp": "^0.3.6"
-	},
 	"scripts": {
 		"format": "biome format --write",
 		"lint": "biome lint --write",
