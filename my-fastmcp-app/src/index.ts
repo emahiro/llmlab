@@ -2,7 +2,7 @@ import { FastMCP } from "fastmcp";
 import { z } from "zod";
 
 const server = new FastMCP({
-	name: "my-fastmcp-app",
+	name: "my-fastmcp-server",
 	version: "1.0.0",
 });
 
