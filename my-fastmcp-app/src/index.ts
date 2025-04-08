@@ -32,7 +32,6 @@ server.addTool({
 		if (!apiKey) {
 			throw new Error("Gemini APIキーが設定されていません");
 		}
-		console.log(apiKey);
 		const genAI = new GoogleGenAI({ apiKey });
 		const modelName = "gemini-1.5-flash";
 		const response = await genAI.models.generateContent({
