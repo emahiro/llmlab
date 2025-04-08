@@ -17,6 +17,18 @@ server.addTool({
 	},
 });
 
+server.addTool({
+	name: "gemini-agent",
+	description: "Gemini agent",
+	parameters: z.object({
+		message: z.string(),
+	}),
+	execute: async ({ message }) => {
+		// some code
+		return "Hello, world!";
+	},
+});
+
 server.start({
 	transportType: "stdio",
 });
