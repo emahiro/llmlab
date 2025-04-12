@@ -12,7 +12,7 @@ const server = new FastMCP({
 
 server.addTool({
 	name: "hello",
-	description: "Say hello",
+	description: "Say Hello",
 	parameters: z.object({
 		name: z.string(),
 	}),
