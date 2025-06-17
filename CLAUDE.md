@@ -1,68 +1,68 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+このファイルは、このリポジトリでコードを操作する際にClaude Code (claude.ai/code) にガイダンスを提供します。
 
-## Repository Overview
+## リポジトリ概要
 
-This is a Japanese LLM development practice repository (LLM の開発の練習用リポジトリ) containing multiple experimental applications and tools.
+これは複数の実験的なアプリケーションとツールを含むLLMの開発練習用リポジトリです。
 
-## Project Structure
+## プロジェクト構造
 
-The repository contains several independent applications:
+このリポジトリには複数の独立したアプリケーションが含まれています：
 
-### Root Level
-- Root package.json provides common formatting/linting with Biome
-- Makefile for environment setup (.env → .envrc conversion)
-- Uses tab indentation (configured in biome.json)
+### ルートレベル
+- ルートのpackage.jsonはBiomeによる共通フォーマット/リントを提供
+- 環境設定用のMakefile（.env → .envrc変換）
+- タブインデントを使用（biome.jsonで設定）
 
-### Sub-Applications
+### サブアプリケーション
 
-1. **pomodoro-timer-by-copilot-claude4/** - Next.js Pomodoro timer with SQLite
-   - Commands: `npm run dev`, `npm run build`, `npm run lint`
-   - Uses better-sqlite3 for session history storage
-   - TailwindCSS styling, TypeScript
+1. **pomodoro-timer-by-copilot-claude4/** - SQLiteを使ったNext.jsポモドーロタイマー
+   - コマンド: `npm run dev`, `npm run build`, `npm run lint`
+   - セッション履歴保存にbetter-sqlite3を使用
+   - TailwindCSSスタイリング、TypeScript
 
-2. **pomodoro-timer-by-jules/** - Alternative Pomodoro implementation
-   - Similar structure but different implementation approach
+2. **pomodoro-timer-by-jules/** - 代替ポモドーロ実装
+   - 同様の構造だが実装アプローチが異なる
 
-3. **my-fastmcp-app/** - FastMCP application
-   - Command: `npm start` (runs `npx fastmcp dev src/index.ts`)
-   - Uses Google GenAI integration
+3. **my-fastmcp-app/** - FastMCPアプリケーション
+   - コマンド: `npm start` (`npx fastmcp dev src/index.ts`を実行)
+   - Google GenAI統合を使用
 
-4. **my-mastra-app/** - Mastra framework application  
-   - Command: `npm run dev` (runs `mastra dev`)
-   - Uses @mastra/core and Google AI SDK
+4. **my-mastra-app/** - Mastraフレームワークアプリケーション
+   - コマンド: `npm run dev` (`mastra dev`を実行)
+   - @mastra/coreとGoogle AI SDKを使用
 
-5. **claude-code-test/** - Basic JavaScript test files
+5. **claude-code-test/** - 基本的なJavaScriptテストファイル
 
-## Common Commands
+## 共通コマンド
 
-### Root Level
-- `npm run format` - Format code with Biome
-- `npm run lint` - Lint and auto-fix with Biome  
-- `npm run check` - Run full Biome check
-- `make setup-env` - Convert .env to .envrc for direnv
-- `make clean` - Remove temporary files
+### ルートレベル
+- `npm run format` - Biomeでコードをフォーマット
+- `npm run lint` - Biomeでリント・自動修正
+- `npm run check` - Biomeの完全チェックを実行
+- `make setup-env` - direnv用に.envを.envrcに変換
+- `make clean` - 一時ファイルを削除
 
-### Next.js Projects (pomodoro-timer-*)
-- `npm run dev` - Start development server (port 3000)
-- `npm run build` - Build for production
-- `npm run lint` - ESLint checking
+### Next.jsプロジェクト (pomodoro-timer-*)
+- `npm run dev` - 開発サーバーを起動（ポート3000）
+- `npm run build` - 本番用ビルド
+- `npm run lint` - ESLintチェック
 
-### MCP/Mastra Projects
-- Use respective start/dev commands as defined in their package.json
+### MCP/Mastraプロジェクト
+- 各package.jsonで定義されたstart/devコマンドを使用
 
-## Code Style Guidelines
+## コードスタイルガイドライン
 
-Based on .cursor/rules/common-rules.mdc:
-- Execute exactly what is requested - no additional features
-- Implement precisely specified requirements without creative extensions
-- Use the simplest solution that fulfills all requirements
-- Minimize lines of code while completing the task
+.cursor/rules/common-rules.mdcに基づく：
+- 要求された内容を正確に実行 - 追加機能なし
+- 創意的な拡張なしに指定された要件を正確に実装
+- すべての要件を満たす最もシンプルなソリューションを使用
+- タスクを完了しながらコード行数を最小化
 
-## Formatting Configuration
+## フォーマット設定
 
-- Biome is used for formatting and linting
-- Tab indentation (width: 2)
-- Double quotes for JavaScript
-- Recommended linting rules enabled
+- フォーマットとリントにBiomeを使用
+- タブインデント（幅：2）
+- JavaScriptにはダブルクォート
+- 推奨リントルールを有効化
