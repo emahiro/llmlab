@@ -38,19 +38,23 @@
 ## 共通コマンド
 
 ### ルートレベル
-- `npm run format` - Biomeでコードをフォーマット
-- `npm run lint` - Biomeでリント・自動修正
-- `npm run check` - Biomeの完全チェックを実行
+- `pnpm run format` - Biomeでコードをフォーマット
+- `pnpm run lint` - Biomeでリント・自動修正
+- `pnpm run check` - Biomeの完全チェックを実行
+- `pnpm install` - 全ての依存関係をインストール
 - `make setup-env` - direnv用に.envを.envrcに変換
 - `make clean` - 一時ファイルを削除
+- `make install` - 全ての依存関係をインストール
+- `make format` - 全てのコードをフォーマット
+- `make lint` - 全てのコードをリント
 
 ### Next.jsプロジェクト (pomodoro-timer-*)
-- `npm run dev` - 開発サーバーを起動（ポート3000）
-- `npm run build` - 本番用ビルド
-- `npm run lint` - ESLintチェック
+- `pnpm run dev` - 開発サーバーを起動（ポート3000）
+- `pnpm run build` - 本番用ビルド
+- `pnpm run lint` - ESLintチェック
 
 ### MCP/Mastraプロジェクト
-- 各package.jsonで定義されたstart/devコマンドを使用
+- 各package.jsonで定義されたstart/devコマンドを使用（pnpm経由で実行）
 
 ## コードスタイルガイドライン
 
