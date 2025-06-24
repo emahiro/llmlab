@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicroCMS Rich Parser - ローカルテスト</title>
+</head>
+<body>
+    <h1>ライトモード</h1>
+    <div class="microcms-rich-content "><p class="rich-paragraph">Twitter にかくと炎上しそうなネタでもあるので、割と時流のホットなコンテンツは最近 Bluesky に自分の意見やスタンスを書いていることが多い。</p><p class="rich-paragraph">タイトルの通り WFH か RTO かという話はコロナ禍から時間が経って、欧米圏では一定の解答が出つつあり、国内でもある程度企業ごとの方針は固まってきていると思っていたけど、そういった先行してスタンスを取る企業に遅れて最近になってスタンスを変更する企業の話もまたポツポツ聞くようになってきた。</p><p class="rich-paragraph">身近でもそういった話を聞いたので Bluesky にこういった一連の投稿をしてみた。</p><blockquote class="rich-blockquote"><p>RTO 云々はだいぶ落ち着いたと思ってたけどまだポツポツ話は聞くな。自分はもうRTOになって久しいし、出社も悪くないと思ってるし、なにより出社にこだわらない方がキャリアの選択肢広がってポジティブな側面もあるので、世間の RTOの風潮に対して思うところはないんだけど、まぁRTO かかった時に現場レベルであれこれ画策するのはまぁ無駄かなとは思う。</p></blockquote><p class="rich-paragraph">[emahiro (@<a href="http://emahiro.bsky.social">emahiro.bsky.social</a>)](<a href="https://bsky.app/profile/emahiro.bsky.social/post/3l4bungcwtr2e">https://bsky.app/profile/emahiro.bsky.social/post/3l4bungcwtr2e</a>)</p><hr class="rich-divider"><p class="rich-paragraph">ちょうどタイムリーに Amazon が RTO を週5にするというニュースが界隈をだいぶ賑やかにさせた。</p><p class="rich-paragraph">これについてはこんなコメントをした。</p><blockquote class="rich-blockquote"><p>文化の維持という側面はあるにせよ、コロナ禍の雇い過ぎからのゆり戻しをまだ続けてる、というふうに見えないこともない。</p></blockquote><hr class="rich-divider"><p class="rich-paragraph">話は少し逸れてしまったが、１個人として見ると WFH ほど良いものはないが、それは個人最適の話であって全体最適で見るとまた話は違ってくるのだろうと思う。</p><style>
+			.microcms-rich-content {
+				max-width: 800px;
+				margin: 0 auto;
+				line-height: 1.7;
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+				color: #333;
+				background-color: #fff;
+				padding: 2rem;
+			}
+
+			.microcms-rich-content.dark-mode {
+				color: #e4e4e7;
+				background-color: #1a1a1a;
+			}
+
+			.rich-paragraph {
+				margin-bottom: 1.5rem;
+				font-size: 1.1rem;
+				color: inherit;
+			}
+
+			.rich-blockquote {
+				margin: 2rem 0;
+				padding: 1.5rem 2rem;
+				border-left: 4px solid #3b82f6;
+				background-color: #f8fafc;
+				border-radius: 0 8px 8px 0;
+				font-style: italic;
+				position: relative;
+			}
+
+			.dark-mode .rich-blockquote {
+				background-color: #2d2d30;
+				border-left-color: #60a5fa;
+			}
+
+			.rich-blockquote::before {
+				content: '"';
+				font-size: 4rem;
+				color: #3b82f6;
+				position: absolute;
+				top: -10px;
+				left: 10px;
+				font-family: serif;
+			}
+
+			.dark-mode .rich-blockquote::before {
+				color: #60a5fa;
+			}
+
+			.rich-divider {
+				margin: 3rem 0;
+				border: none;
+				height: 2px;
+				background: linear-gradient(to right, transparent, #d1d5db, transparent);
+			}
+
+			.dark-mode .rich-divider {
+				background: linear-gradient(to right, transparent, #4b5563, transparent);
+			}
+
+			.rich-link {
+				color: #3b82f6;
+				text-decoration: underline;
+				text-decoration-thickness: 2px;
+				text-underline-offset: 2px;
+				transition: all 0.2s ease;
+			}
+
+			.rich-link:hover {
+				color: #1d4ed8;
+				text-decoration-thickness: 3px;
+			}
+
+			.dark-mode .rich-link {
+				color: #60a5fa;
+			}
+
+			.dark-mode .rich-link:hover {
+				color: #93c5fd;
+			}
+
+			@media (max-width: 768px) {
+				.microcms-rich-content {
+					padding: 1rem;
+					font-size: 0.95rem;
+				}
+
+				.rich-paragraph {
+					font-size: 1rem;
+				}
+
+				.rich-blockquote {
+					padding: 1rem;
+					margin: 1.5rem 0;
+				}
+			}
+		</style></div>
+    
+    <h1>ダークモード</h1>
+    <div class="microcms-rich-content dark-mode"><p class="rich-paragraph">Twitter にかくと炎上しそうなネタでもあるので、割と時流のホットなコンテンツは最近 Bluesky に自分の意見やスタンスを書いていることが多い。</p><p class="rich-paragraph">タイトルの通り WFH か RTO かという話はコロナ禍から時間が経って、欧米圏では一定の解答が出つつあり、国内でもある程度企業ごとの方針は固まってきていると思っていたけど、そういった先行してスタンスを取る企業に遅れて最近になってスタンスを変更する企業の話もまたポツポツ聞くようになってきた。</p><p class="rich-paragraph">身近でもそういった話を聞いたので Bluesky にこういった一連の投稿をしてみた。</p><blockquote class="rich-blockquote"><p>RTO 云々はだいぶ落ち着いたと思ってたけどまだポツポツ話は聞くな。自分はもうRTOになって久しいし、出社も悪くないと思ってるし、なにより出社にこだわらない方がキャリアの選択肢広がってポジティブな側面もあるので、世間の RTOの風潮に対して思うところはないんだけど、まぁRTO かかった時に現場レベルであれこれ画策するのはまぁ無駄かなとは思う。</p></blockquote><p class="rich-paragraph">[emahiro (@<a href="http://emahiro.bsky.social">emahiro.bsky.social</a>)](<a href="https://bsky.app/profile/emahiro.bsky.social/post/3l4bungcwtr2e">https://bsky.app/profile/emahiro.bsky.social/post/3l4bungcwtr2e</a>)</p><hr class="rich-divider"><p class="rich-paragraph">ちょうどタイムリーに Amazon が RTO を週5にするというニュースが界隈をだいぶ賑やかにさせた。</p><p class="rich-paragraph">これについてはこんなコメントをした。</p><blockquote class="rich-blockquote"><p>文化の維持という側面はあるにせよ、コロナ禍の雇い過ぎからのゆり戻しをまだ続けてる、というふうに見えないこともない。</p></blockquote><hr class="rich-divider"><p class="rich-paragraph">話は少し逸れてしまったが、１個人として見ると WFH ほど良いものはないが、それは個人最適の話であって全体最適で見るとまた話は違ってくるのだろうと思う。</p><style>
+			.microcms-rich-content {
+				max-width: 800px;
+				margin: 0 auto;
+				line-height: 1.7;
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+				color: #333;
+				background-color: #fff;
+				padding: 2rem;
+			}
+
+			.microcms-rich-content.dark-mode {
+				color: #e4e4e7;
+				background-color: #1a1a1a;
+			}
+
+			.rich-paragraph {
+				margin-bottom: 1.5rem;
+				font-size: 1.1rem;
+				color: inherit;
+			}
+
+			.rich-blockquote {
+				margin: 2rem 0;
+				padding: 1.5rem 2rem;
+				border-left: 4px solid #3b82f6;
+				background-color: #f8fafc;
+				border-radius: 0 8px 8px 0;
+				font-style: italic;
+				position: relative;
+			}
+
+			.dark-mode .rich-blockquote {
+				background-color: #2d2d30;
+				border-left-color: #60a5fa;
+			}
+
+			.rich-blockquote::before {
+				content: '"';
+				font-size: 4rem;
+				color: #3b82f6;
+				position: absolute;
+				top: -10px;
+				left: 10px;
+				font-family: serif;
+			}
+
+			.dark-mode .rich-blockquote::before {
+				color: #60a5fa;
+			}
+
+			.rich-divider {
+				margin: 3rem 0;
+				border: none;
+				height: 2px;
+				background: linear-gradient(to right, transparent, #d1d5db, transparent);
+			}
+
+			.dark-mode .rich-divider {
+				background: linear-gradient(to right, transparent, #4b5563, transparent);
+			}
+
+			.rich-link {
+				color: #3b82f6;
+				text-decoration: underline;
+				text-decoration-thickness: 2px;
+				text-underline-offset: 2px;
+				transition: all 0.2s ease;
+			}
+
+			.rich-link:hover {
+				color: #1d4ed8;
+				text-decoration-thickness: 3px;
+			}
+
+			.dark-mode .rich-link {
+				color: #60a5fa;
+			}
+
+			.dark-mode .rich-link:hover {
+				color: #93c5fd;
+			}
+
+			@media (max-width: 768px) {
+				.microcms-rich-content {
+					padding: 1rem;
+					font-size: 0.95rem;
+				}
+
+				.rich-paragraph {
+					font-size: 1rem;
+				}
+
+				.rich-blockquote {
+					padding: 1rem;
+					margin: 1.5rem 0;
+				}
+			}
+		</style></div>
+</body>
+</html>

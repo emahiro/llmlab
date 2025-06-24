@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicroCMS Rich Parser - ブラウザテスト</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .controls {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .example {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .example h2 {
+            margin: 0;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 18px;
+            color: #495057;
+        }
+        button {
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .raw-html {
+            max-height: 200px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            border: 1px solid #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 MicroCMS Rich Parser - ブラウザテスト</h1>
+        
+        <div class="controls">
+            <div class="toggle">
+                <label>
+                    <input type="checkbox" id="darkModeToggle"> 🌙 ダークモード
+                </label>
+            </div>
+            <div class="toggle">
+                <label>
+                    <input type="text" id="customClassName" placeholder="カスタムクラス名" value="microcms-rich-content">
+                </label>
+            </div>
+            <button onclick="updateContent()">🔄 再生成</button>
+            <button onclick="toggleRawHTML()">📄 生HTML表示</button>
+        </div>
+
+        <div class="example">
+            <h2>📝 パース結果</h2>
+            <div id="content"></div>
+        </div>
+
+        <div class="example" id="rawHTMLContainer" style="display: none;">
+            <h2>🔍 生成されたHTML</h2>
+            <div class="raw-html" id="rawHTML"></div>
+        </div>
+    </div>
+
+    <!-- ライブラリを読み込み -->
+    <script src="../dist/index.js"></script>
+    <script>
+        // MicroCMSサンプルデータ
+        const sampleHTML = `<p>Twitter にかくと炎上しそうなネタでもあるので、割と時流のホットなコンテンツは最近 Bluesky に自分の意見やスタンスを書いていることが多い。</p><p>タイトルの通り WFH か RTO かという話はコロナ禍から時間が経って、欧米圏では一定の解答が出つつあり、国内でもある程度企業ごとの方針は固まってきていると思っていたけど、そういった先行してスタンスを取る企業に遅れて最近になってスタンスを変更する企業の話もまたポツポツ聞くようになってきた。</p><p>身近でもそういった話を聞いたので Bluesky にこういった一連の投稿をしてみた。</p><blockquote><p>RTO 云々はだいぶ落ち着いたと思ってたけどまだポツポツ話は聞くな。自分はもうRTOになって久しいし、出社も悪くないと思ってるし、なにより出社にこだわらない方がキャリアの選択肢広がってポジティブな側面もあるので、世間の RTOの風潮に対して思うところはないんだけど、まぁRTO かかった時に現場レベルであれこれ画策するのはまぁ無駄かなとは思う。RTO は会社のスタンスの表明であり、選択できるのは乗るか反るかの二択。 また、現場と経営では話してるプロトコルやそもそも見てるところが異なるので現場の意見を組むみたいなことはまずない。 なので納得いかなければ辞める他ない、という類のものなんだよね。</p></blockquote><p>[emahiro (@<a href="http://emahiro.bsky.social">emahiro.bsky.social</a>)](<a href="https://bsky.app/profile/emahiro.bsky.social/post/3l4bungcwtr2e">https://bsky.app/profile/emahiro.bsky.social/post/3l4bungcwtr2e</a>)</p><p>僕自身は現職が WFH -&gt; RTO に移行して１年以上経過した上で、出社も悪くはないなと思っている。やはりオフラインの持つ圧倒的なレイテンシの低さはオンラインでは代替できない。この「生身」感こそがプロダクト開発にいい影響があるということを否定することは今の自分にはできない。</p><p>一方で仕事においては上記のようなスタンスでいるが、プライベートに目を向けると自分の私生活において今最も大きなイシューである「育児」とRTOが食い合わせが悪いことも重々承知している。</p><blockquote><p>育児とRTOの相性の悪さもよく目にするし自分も当事者なので、わかると思うところも多いが、だからと言ってスタンスがブレることは多分ないので、音楽性の合うところに身を移す方が正直賢明だと思う。 あと思うに WFH にプライベートな生活をフリーライドさせるのは個人的にもどうかな？とは思うようになってきたので、やはり働けないと思うなら辞めるしかないと思う(繰り返し)</p></blockquote><p>[emahiro (@<a href="http://emahiro.bsky.social">emahiro.bsky.social</a>)](<a href="https://bsky.app/profile/emahiro.bsky.social/post/3l4bvhn4peu2u">https://bsky.app/profile/emahiro.bsky.social/post/3l4bvhn4peu2u</a>)</p><p>正直 WFH 派にも言い分はあるしそれは間違っておらず、一方で RTO にする理由もまぁわからなくもない、という感じを受けている。実際 RTO するまで RTO なんかありえんと思っていた側でもあったものの、やってみると便益も一定ある（その便益を享受するために何処かに負荷が偏っているのでそのケアは欠かせないが）</p><hr><p>ちょうどタイムリーに Amazon が RTO を週5にするというニュースが界隈をだいぶ賑やかにさせた。</p><p>[Update from Amazon CEO Andy Jassy on return-to-office plans and manager team ratio](<a href="https://www.aboutamazon.com/news/company-news/ceo-andy-jassy-latest-update-on-amazon-return-to-office-manager-team-ratio">https://www.aboutamazon.com/news/company-news/ceo-andy-jassy-latest-update-on-amazon-return-to-office-manager-team-ratio</a>)</p><p>これについてはこんなコメントをした。</p><blockquote><p>文化の維持という側面はあるにせよ、コロナ禍の雇い過ぎからのゆり戻しをまだ続けてる、というふうに見えないこともない。</p></blockquote><p>[emahiro (@<a href="http://emahiro.bsky.social">emahiro.bsky.social</a>)](<a href="https://bsky.app/profile/emahiro.bsky.social/post/3l4ehumw2xv2a">https://bsky.app/profile/emahiro.bsky.social/post/3l4ehumw2xv2a</a>)</p><hr><p>話は少し逸れてしまったが、１個人として見ると WFH ほど良いものはないが、それは個人最適の話であって全体最適で見るとまた話は違ってくるのだろうと思う。</p><p>個人最適が全体最適にならないのは常なので、もし全体最適的な意思決定におて個人最適が脅かされ、それが嫌だというのなら、その環境を変えようとするより、自分自身の居場所を変えたほうがいいように思う。</p><p>特にプライベートにおける全体最適に対する負荷の閾値は個々人、家庭ごとに異なってくる。我が家の場合はたまたまちょっとだけ高いだけだと思っているし、プライベートを犠牲にしてまで仕事したいか、という一人ひとりの人生観にも関わってくるところでもあるので、自分を大切に生きるために最善を選択するべき。</p><p>それがたまたま「反る」ことになってもそれは仕方のない話だと割り切る方が良いように思う。</p><p>WFH/RTO の二元論については自分はそういう考えを持っている。</p><p></p>`;
+
+        // ライブラリが利用可能かチェック
+        if (typeof module !== 'undefined' && module.exports) {
+            // Node.js環境
+            var { parseMicroCMSHTML, MicroCMSRichParser } = require('../dist/index.js');
+        } else if (typeof window !== 'undefined' && window.parseMicroCMSHTML) {
+            // ブラウザ環境（グローバル変数として利用可能な場合）
+            var parseMicroCMSHTML = window.parseMicroCMSHTML;
+            var MicroCMSRichParser = window.MicroCMSRichParser;
+        } else {
+            // ライブラリが利用できない場合のフォールバック
+            console.warn('MicroCMS Rich Parser library not found. Using fallback.');
+            var parseMicroCMSHTML = function(html, options) {
+                return '<div style="padding: 20px; border: 2px dashed #ccc; background: #f9f9f9;"><p><strong>⚠️ ライブラリが読み込まれていません</strong></p><p>dist/index.js を確認してください。</p><div style="max-height: 200px; overflow-y: auto; background: white; padding: 10px; border-radius: 4px; font-family: monospace; font-size: 12px;">' + html.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</div></div>';
+            };
+        }
+
+        function updateContent() {
+            try {
+                const darkMode = document.getElementById('darkModeToggle').checked;
+                const className = document.getElementById('customClassName').value || 'microcms-rich-content';
+                
+                const styledHTML = parseMicroCMSHTML(sampleHTML, { 
+                    darkMode: darkMode,
+                    className: className
+                });
+                
+                document.getElementById('content').innerHTML = styledHTML;
+                document.getElementById('rawHTML').textContent = styledHTML;
+                
+                console.log('✅ Content updated successfully');
+            } catch (error) {
+                console.error('❌ Error updating content:', error);
+                document.getElementById('content').innerHTML = `
+                    <div style="padding: 20px; border: 2px solid #ff6b6b; background: #ffe0e0; border-radius: 8px;">
+                        <h3>🚨 エラーが発生しました</h3>
+                        <p><strong>エラー内容:</strong> ${error.message}</p>
+                        <p><strong>対処方法:</strong></p>
+                        <ul>
+                            <li>npm run build を実行してライブラリをビルドしてください</li>
+                            <li>dist/index.js ファイルが存在することを確認してください</li>
+                            <li>ブラウザのコンソールでエラーを確認してください</li>
+                        </ul>
+                    </div>
+                `;
+            }
+        }
+
+        function toggleRawHTML() {
+            const container = document.getElementById('rawHTMLContainer');
+            container.style.display = container.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // イベントリスナーの設定
+        document.getElementById('darkModeToggle').addEventListener('change', updateContent);
+        document.getElementById('customClassName').addEventListener('input', updateContent);
+
+        // 初期化
+        updateContent();
+
+        // デバッグ用の情報をコンソールに出力
+        console.log('🚀 MicroCMS Rich Parser Test Page Loaded');
+        console.log('📦 Library available:', typeof parseMicroCMSHTML !== 'undefined');
+        console.log('🎯 Sample HTML length:', sampleHTML.length);
+    </script>
+</body>
+</html>
